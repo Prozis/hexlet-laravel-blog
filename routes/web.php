@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/articles', function () {
-    $articles = App\Article::all();
-    return view('articles', ['articles' => $articles]);
-});
+
+Route::get('/about', 'PageController@about');
+
+// Route::get('/articles', function () {
+//     $articles = App\Article::all();
+//     return view('articles', ['articles' => $articles]);
+// });
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
+
+Route::get('/articles/{id}', 'ArticleController@show')->name('articles.show');
