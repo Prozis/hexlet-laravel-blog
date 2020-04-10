@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/articles', function () {
+    $articles = App\Article::all();
+    return view('articles', ['articles' => $articles]);
+});
