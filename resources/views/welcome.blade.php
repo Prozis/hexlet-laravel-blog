@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    Hello!
+<hr>
+    <h2>Главная страница блога</h2>
 @endsection
