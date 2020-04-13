@@ -1,4 +1,5 @@
 Учебный проект laravel-blog
+<hr>
 Установка:
-composer install
+composer install<br>
 npm install
