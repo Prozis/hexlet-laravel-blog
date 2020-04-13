@@ -67,7 +67,7 @@ class ArticleController extends Controller
   */
   public function show(Article $article)
   {
-    $article = Article::findOrFail($article->id);
+    //$article = Article::findOrFail($article->id);
     return view('article.show', compact('article'));
   }
 
@@ -79,7 +79,7 @@ class ArticleController extends Controller
   */
   public function edit(Article $article)
   {
-    $article = Article::findOrFail($article->id);
+    //$article = Article::findOrFail($article->id);
     return view('article.edit', compact('article'));
   }
 
@@ -92,7 +92,7 @@ class ArticleController extends Controller
   */
   public function update(Request $request, Article $article)
   {
-    $article = Article::findOrFail($article->id);
+    //$article = Article::findOrFail($article->id);
     $data = $this->validate($request, [
       // У обновления немного изменённая валидация. В проверку уникальности добавляется название поля и id текущего объекта
       // Если этого не сделать, Laravel будет ругаться на то что имя уже существует
@@ -115,10 +115,11 @@ class ArticleController extends Controller
   public function destroy(Article $article)
   {
     // DELETE — идемпотентный метод, поэтому результат операции всегда один и тот же
-    $article = Article::find($article->id);
-    if ($article) {
-      $article->delete();
-    }
+    // $article = Article::find($article->id);
+    // if ($article) {
+    //   $article->delete();
+    // }
+    $article->delete();
     return redirect()->route('articles.index');
   }
 }
